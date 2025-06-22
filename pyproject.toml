@@ -8,6 +8,8 @@ dependencies = [
     "beautifulsoup4>=4.13.4",
     "crewai[tools]>=0.130.0,<1.0.0",
     "requests>=2.32.4",
+    "selenium>=4.33.0",
+    "webdriver-manager>=4.0.2",
 ]
 
 [project.scripts]
