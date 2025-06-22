@@ -18,10 +18,10 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs',
+        'portals': ['https://www.kleinanzeigen.de/s-haus-kaufen/bungalow,einfamilienhaus,villa/nordrhein-westfalen/preis::500000/c208l928+haus_kaufen.haustyp_s:(bungalow%2Ceinfamilienhaus%2Cvilla)+options:haus_kaufen.celler_loft_b,haus_kaufen.garage_b'],
         'current_year': str(datetime.now().year)
     }
-    
+
     try:
         RealEstateIntelligenceUnit().crew().kickoff(inputs=inputs)
     except Exception as e:
@@ -60,7 +60,7 @@ def test():
         "topic": "AI LLMs",
         "current_year": str(datetime.now().year)
     }
-    
+
     try:
         RealEstateIntelligenceUnit().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
 

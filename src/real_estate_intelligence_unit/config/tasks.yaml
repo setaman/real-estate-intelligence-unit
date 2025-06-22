@@ -1,17 +1,48 @@
-research_task:
-  description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
-  expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+tasks:
+  initial_market_scan:
+    description: >
+      Conduct a comprehensive scan of the following German property portals:
+      {portals}. Visit look only at the first page. Your objective is to find all 'Detached Houses'
+      (Einfamilienhaus) that meet these strict criteria:
+      1. Price: Maximum of 500,000€.
+      2. Rooms: 5 or more.
+      3. Location: Use search terms that cover the central area of NRW, focusing on
+         locations from which both Essen and Dortmund are accessible within
+         approximately 50 minutes.
+      4. Must-Have Feature: A garage must be mentioned.
 
-reporting_task:
-  description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
-  expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+      From the search results, extract the direct URL to each individual property
+      listing. Your final output must be a clean list of these URLs. Do not analyze
+      the properties in detail; simply identify and list all potential matches.
+    expected_output: >
+      A Python list of strings, where each string is a direct URL to a
+      property listing that matches the criteria.
+    agent: senior_property_scout
+
+  in_depth_analysis_and_reporting:
+    description: >
+      Take the provided list of property URLs and conduct a detailed due
+      diligence investigation for each one. Your goal is to create a single,
+      de-duplicated, and prioritized report. For each unique property, you must:
+      1. Extract Full Details: Visit the URL and scrape all key information: Price,
+         full address, living space (Wohnfläche), plot size (Grundstücksfläche),
+         number of rooms, year of construction, and the full property description text.
+      2. Verify Commute: Using the address, research and confirm that the driving
+         time to both Essen Hauptbahnhof and Dortmund Hauptbahnhof is under 50 minutes.
+      3. Assess Secondary Preferences: Analyze the extracted data and perform
+         additional research to evaluate against preferences like environment,
+         infrastructure, condition, layout (flat levels), space (basement, home offices),
+         and parking for two cars.
+      4. De-duplicate and Prioritize: Identify listings for the same property
+         from different portals and merge them. Rank the final list of unique
+         properties from most to least suitable.
+      5. Generate Report: Compile your findings into a markdown file named
+         `property_analysis_report.md`.
+    expected_output: >
+      A final confirmation message stating that the report has been successfully
+      created and saved as `property_analysis_report.md`. The report file itself
+      should be written to disk and contain a ranked list of properties with their
+      pros, cons, and analyst notes in the specified markdown format.
+    agent: real_estate_analyst
+    # This task will implicitly use the output from the 'initial_market_scan' task
+    # when you define the task dependencies in your crew setup.
