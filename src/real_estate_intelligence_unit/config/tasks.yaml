@@ -10,6 +10,7 @@ initial_market_scan:
        approximately 50 minutes.
     4. Must-Have Feature: A garage must be mentioned.
     
+    You do not need to modify the URL itself, it already contains all the filters - just call it.
     From the search results, extract the direct URL to each individual property
     listing. Your final output must be a clean list of top 10 URLs. Do not analyze
     the properties in detail; simply identify and list all potential matches.

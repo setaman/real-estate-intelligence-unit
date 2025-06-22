@@ -31,8 +31,8 @@ senior_property_scout:
       6. If you cannot visit the URL, politely decline and explain the facing error
   # Note: The tools themselves (e.g., ScraperTool) need to be defined
   # and instantiated in your Python code and passed to the agent.
-  tools:
-    - "website_tool"
+#  tools:
+#    - "ScrapeWebsiteTool"
   verbose: true
   allow_delegation: false
 
@@ -57,8 +57,8 @@ real_estate_analyst:
       4. Always cite specific parts of the URL content when answering
       5. If asked about topics not covered in the URL, politely decline and redirect to available content
       6. If you cannot visit the URL, politely decline and explain the facing error
-  tools:
-    - "website_tool"
+#  tools:
+#    - "ScrapeWebsiteTool"
 
   verbose: true
   allow_delegation: false
