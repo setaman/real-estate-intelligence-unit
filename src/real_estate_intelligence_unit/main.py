@@ -18,7 +18,7 @@ def run():
     Run the crew.
     """
     inputs = {
-        'portals': ['https://www.kleinanzeigen.de/s-haus-kaufen/bungalow,einfamilienhaus,villa/nordrhein-westfalen/preis::500000/c208l928+haus_kaufen.haustyp_s:(bungalow%2Ceinfamilienhaus%2Cvilla)+options:haus_kaufen.celler_loft_b,haus_kaufen.garage_b'],
+        'portals': ", ".join(['https://www.kleinanzeigen.de/s-haus-kaufen/bungalow,einfamilienhaus,villa/nordrhein-westfalen/preis::500000/c208l928+haus_kaufen.haustyp_s:(bungalow%2Ceinfamilienhaus%2Cvilla)+options:haus_kaufen.celler_loft_b,haus_kaufen.garage_b']),
         'current_year': str(datetime.now().year)
     }
 

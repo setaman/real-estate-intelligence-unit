@@ -20,14 +20,14 @@ class RealEstateIntelligenceUnit():
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools
     @agent
-    def scout(self) -> Agent:
+    def senior_property_scout(self) -> Agent:
         return Agent(
             config=self.agents_config['senior_property_scout'], # type: ignore[index]
             verbose=True
         )
 
     @agent
-    def analyst(self) -> Agent:
+    def real_estate_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['real_estate_analyst'], # type: ignore[index]
             verbose=True
