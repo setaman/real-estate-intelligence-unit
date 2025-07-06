@@ -1,0 +1,13 @@
+{
+  "name": "property-analysis",
+  "version": "0.0.1",
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}
